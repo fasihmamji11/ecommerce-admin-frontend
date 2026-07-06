@@ -1,11 +1,10 @@
-/* Dashboard Root */
+/* Dashboard Root
 .dashboard-root {
     display: flex;
     min-height: 100vh;
     background: #f8fafc;
 }
 
-/* Main Area */
 .main-area {
     flex: 1;
     display: flex;
@@ -14,7 +13,6 @@
     margin-left: 280px;
 }
 
-/* Topbar */
 .topbar {
     height: 72px;
     display: flex;
@@ -65,14 +63,12 @@
     margin: 0;
 }
 
-/* Topbar Right */
 .topbar-right {
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
-/* Search */
 .search-wrapper {
     position: relative;
     display: flex;
@@ -108,7 +104,6 @@
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-/* Icon Buttons */
 .icon-btn {
     position: relative;
     width: 40px;
@@ -147,7 +142,6 @@
     border: 2px solid #ffffff;
 }
 
-/* User Menu */
 .user-menu {
     display: flex;
     align-items: center;
@@ -209,14 +203,12 @@
     transform: translateY(2px);
 }
 
-/* Content Area */
 .content-area {
     flex: 1;
     padding: 32px;
     background: #f8fafc;
 }
 
-/* Footer */
 .dashboard-footer {
     background: #ffffff;
     border-top: 1px solid #e2e8f0;
@@ -260,7 +252,6 @@
     text-decoration: underline;
 }
 
-/* Mobile Drawer */
 .mobile-drawer {
     display: none;
     position: fixed;
@@ -317,7 +308,6 @@
     color: #dc2626;
 }
 
-/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -336,7 +326,6 @@
     }
 }
 
-/* Responsive Design */
 @media (max-width: 1200px) {
     .main-area {
         margin-left: 260px;
@@ -484,7 +473,6 @@
     }
 }
 
-/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -493,4 +481,369 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+} */
+
+/* ───────────────────────────────────────────
+   DASHBOARD LAYOUT — dark navy / teal theme
+─────────────────────────────────────────── */
+
+/* Inherits --sb-* tokens from Sidebar.css */
+
+/* ── Root ── */
+.dl-root {
+  display: flex;
+  min-height: 100vh;
+  background: #0f1520;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Desktop sidebar slot ── */
+.dl-sidebar-desktop {
+  width: 256px;   /* matches --sb-width */
+  flex-shrink: 0;
+}
+
+/* ── Main area ── */
+.dl-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;           /* prevent flex overflow */
+  /* margin-left: 256px;      */
+}
+
+/* ────────────────────────────
+   TOPBAR
+──────────────────────────── */
+.dl-topbar {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  background: #0d1117;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  gap: 16px;
+}
+
+/* Left side */
+.dl-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* Hamburger — hidden on desktop */
+.dl-menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  color: #8899aa;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.18s, background 0.18s;
+}
+
+.dl-menu-btn:hover {
+  color: #f0f4f8;
+  background: rgba(255,255,255,0.09);
+}
+
+.dl-page-id {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.dl-page-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #f0f4f8;
+  letter-spacing: -0.3px;
+  margin: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dl-page-sub {
+  font-size: 12px;
+  color: #64748b;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Right side */
+.dl-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* Icon button */
+.dl-icon-btn {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  color: #8899aa;
+  cursor: pointer;
+  transition: color 0.18s, background 0.18s;
+  flex-shrink: 0;
+}
+
+.dl-icon-btn:hover {
+  color: #f0f4f8;
+  background: rgba(255,255,255,0.09);
+}
+
+.dl-badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 16px;
+  height: 16px;
+  background: #00c9a7;
+  color: #0d1117;
+  font-size: 9px;
+  font-weight: 800;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #0d1117;
+  line-height: 1;
+}
+
+/* User pill */
+.dl-user-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px 6px 6px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  cursor: default;
+}
+
+.dl-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  background: linear-gradient(135deg, #00c9a7, #00a896);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0d1117;
+  flex-shrink: 0;
+}
+
+.dl-user-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.dl-user-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #f0f4f8;
+  line-height: 1.2;
+}
+
+.dl-user-role {
+  font-size: 11px;
+  color: #64748b;
+  line-height: 1.2;
+}
+
+/* ────────────────────────────
+   MOBILE DRAWER
+──────────────────────────── */
+.dl-drawer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+}
+
+.dl-drawer-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  animation: dl-fade-in 0.2s ease both;
+}
+
+.dl-drawer-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 256px;
+  animation: dl-slide-in 0.22s ease both;
+  overflow: hidden;
+}
+
+@keyframes dl-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes dl-slide-in {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+
+/* ────────────────────────────
+   CONTENT AREA
+──────────────────────────── */
+.dl-content {
+  flex: 1;
+  padding: 28px 28px 0;
+  background: #0f1520;
+  min-width: 0;
+}
+
+/* ────────────────────────────
+   FOOTER
+──────────────────────────── */
+.dl-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 28px;
+  font-size: 12px;
+  color: #3d4f63;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  margin-top: 28px;
+}
+
+.dl-footer-sep {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #3d4f63;
+  flex-shrink: 0;
+}
+
+/* ────────────────────────────
+   FOCUS / A11Y
+──────────────────────────── */
+.dl-menu-btn:focus-visible,
+.dl-icon-btn:focus-visible {
+  outline: 2px solid #00c9a7;
+  outline-offset: 2px;
+}
+
+/* ────────────────────────────
+   RESPONSIVE
+──────────────────────────── */
+
+/* Tablet / small laptop — hide desktop sidebar, show hamburger */
+@media (max-width: 900px) {
+  .dl-sidebar-desktop {
+    display: none;
+  }
+
+  .dl-main {
+    margin-left: 0;
+  }
+
+  .dl-menu-btn {
+    display: flex;
+  }
+
+  .dl-drawer {
+    display: block;
+  }
+
+  .dl-topbar {
+    padding: 0 20px;
+    height: 60px;
+  }
+
+  .dl-content {
+    padding: 20px 20px 0;
+  }
+
+  .dl-footer {
+    padding: 16px 20px;
+    margin-top: 20px;
+  }
+}
+
+/* Large phone */
+@media (max-width: 600px) {
+  .dl-topbar {
+    padding: 0 14px;
+  }
+
+  .dl-page-title {
+    font-size: 16px;
+  }
+
+  .dl-page-sub {
+    display: none;
+  }
+
+  /* shrink user pill to avatar only */
+  .dl-user-text {
+    display: none;
+  }
+
+  .dl-user-pill {
+    padding: 5px;
+    border-radius: 8px;
+  }
+
+  .dl-content {
+    padding: 16px 14px 0;
+  }
+
+  .dl-footer {
+    padding: 14px;
+    margin-top: 16px;
+  }
+}
+
+/* Small phone */
+@media (max-width: 380px) {
+  .dl-topbar {
+    padding: 0 10px;
+    gap: 8px;
+  }
+
+  .dl-content {
+    padding: 12px 10px 0;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .dl-drawer-backdrop,
+  .dl-drawer-panel {
+    animation: none;
+  }
 }

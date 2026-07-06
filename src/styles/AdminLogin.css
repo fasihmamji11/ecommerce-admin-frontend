@@ -1,4 +1,4 @@
-/* Admin Login Container */
+/* Admin Login Container
 .admin-login-container {
   min-height: 100vh;
   display: flex;
@@ -19,7 +19,6 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
-/* Left Panel - Image Section */
 .admin-login-image-panel {
   flex: 1;
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%),
@@ -96,7 +95,6 @@
   flex-shrink: 0;
 }
 
-/* Right Panel - Form Section */
 .admin-login-form-panel {
   flex: 1;
   display: flex;
@@ -144,7 +142,6 @@
   color: #718096;
 }
 
-/* Alert */
 .admin-login-alert {
   display: flex;
   align-items: center;
@@ -174,7 +171,6 @@
   }
 }
 
-/* Form */
 .admin-login-form {
   display: flex;
   flex-direction: column;
@@ -285,7 +281,6 @@
   gap: 4px;
 }
 
-/* Submit Button */
 .admin-login-submit {
   width: 100%;
   padding: 14px 24px;
@@ -334,7 +329,6 @@
   }
 }
 
-/* Footer */
 .admin-login-footer {
   margin-top: 32px;
   text-align: center;
@@ -362,7 +356,6 @@
   color: #a0aec0;
 }
 
-/* Responsive Design */
 @media (max-width: 991px) {
   .admin-login-image-panel {
     display: none;
@@ -445,4 +438,499 @@
   .admin-login-form {
     gap: 20px;
   }
+} */
+
+/* ────────────────────────────────────────────────
+   DESIGN TOKENS
+   Palette: deep-navy bg, teal-emerald accent, warm white type
+   ──────────────────────────────────────────────── */
+:root {
+  --al-navy:       #0d1117;
+  --al-navy-2:     #161b26;
+  --al-navy-3:     #1e2636;
+  --al-teal:       #00c9a7;
+  --al-teal-dim:   rgba(0, 201, 167, 0.12);
+  --al-teal-glow:  rgba(0, 201, 167, 0.35);
+  --al-white:      #f0f4f8;
+  --al-muted:      #8899aa;
+  --al-error:      #ff6b7a;
+  --al-error-bg:   rgba(255, 107, 122, 0.08);
+  --al-success:    #34d399;
+  --al-success-bg: rgba(52, 211, 153, 0.08);
+  --al-border:     rgba(255, 255, 255, 0.07);
+  --al-radius:     14px;
+  --al-transition: 0.2s ease;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Root ── */
+.al-root {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--al-navy);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% 30%, rgba(0,201,167,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(0,150,255,0.05) 0%, transparent 60%);
+  padding: 20px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Card ── */
+.al-card {
+  display: flex;
+  width: 100%;
+  max-width: 1040px;
+  min-height: 580px;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px var(--al-border),
+    0 40px 80px rgba(0, 0, 0, 0.6),
+    0 0 60px rgba(0, 201, 167, 0.05);
+}
+
+/* ════════════════════
+   LEFT PANEL
+═════════════════════ */
+.al-side {
+  width: 42%;
+  flex-shrink: 0;
+  background: linear-gradient(155deg, #0a2a2a 0%, #0d1117 60%, #0a1a30 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 56px 44px;
+}
+
+/* decorative mesh lines */
+.al-side::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,201,167,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,201,167,0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%);
+}
+
+.al-side-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.al-logo-mark {
+  width: 52px;
+  height: 52px;
+  background: var(--al-teal-dim);
+  border: 1px solid rgba(0,201,167,0.3);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.al-side-title {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--al-white);
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+
+.al-side-sub {
+  font-size: 14px;
+  color: var(--al-muted);
+  margin-bottom: 44px;
+  line-height: 1.5;
+}
+
+.al-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.al-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #c8d8e8;
+  font-weight: 500;
+}
+
+.al-feature-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--al-teal);
+  flex-shrink: 0;
+  box-shadow: 0 0 8px var(--al-teal);
+}
+
+/* ambient glow blob */
+.al-side-glow {
+  position: absolute;
+  bottom: -80px;
+  right: -60px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,201,167,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ════════════════════
+   RIGHT PANEL
+═════════════════════ */
+.al-form-panel {
+  flex: 1;
+  background: var(--al-navy-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 48px;
+}
+
+.al-form-inner {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* ── Header ── */
+.al-header {
+  margin-bottom: 36px;
+}
+
+.al-header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--al-white);
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.al-header p {
+  font-size: 14px;
+  color: var(--al-muted);
+}
+
+/* ── Alerts ── */
+.al-alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 500;
+  margin-bottom: 22px;
+  animation: al-fadeDown var(--al-transition) both;
+}
+
+.al-alert--error {
+  background: var(--al-error-bg);
+  border: 1px solid rgba(255, 107, 122, 0.2);
+  color: var(--al-error);
+}
+
+.al-alert--success {
+  background: var(--al-success-bg);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  color: var(--al-success);
+}
+
+@keyframes al-fadeDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Lockout ── */
+.al-lockout {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--al-muted);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--al-border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+}
+
+.al-lockout strong {
+  color: var(--al-white);
+}
+
+/* ── Form ── */
+.al-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Field ── */
+.al-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.al-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #c0ccd8;
+  letter-spacing: 0.02em;
+}
+
+.al-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.al-forgot {
+  font-size: 12.5px;
+  color: var(--al-teal);
+  text-decoration: none;
+  font-weight: 500;
+  opacity: 0.85;
+  transition: opacity var(--al-transition);
+}
+
+.al-forgot:hover { opacity: 1; }
+
+/* ── Input wrapper ── */
+.al-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.al-input-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--al-muted);
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.al-input-wrap input {
+  width: 100%;
+  padding: 13px 14px 13px 46px;
+  font-size: 14.5px;
+  background: rgba(255,255,255,0.04);
+  border: 1.5px solid rgba(255,255,255,0.09);
+  border-radius: 10px;
+  color: var(--al-white);
+  outline: none;
+  transition: border-color var(--al-transition), box-shadow var(--al-transition), background var(--al-transition);
+  -webkit-font-smoothing: antialiased;
+}
+
+.al-input-wrap input::placeholder {
+  color: rgba(136, 153, 170, 0.5);
+}
+
+.al-input-wrap input:focus {
+  border-color: var(--al-teal);
+  background: rgba(0, 201, 167, 0.04);
+  box-shadow: 0 0 0 3px var(--al-teal-dim);
+}
+
+.al-input-wrap input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.al-field--error .al-input-wrap input {
+  border-color: rgba(255, 107, 122, 0.5);
+  background: var(--al-error-bg);
+}
+
+.al-field--error .al-input-wrap input:focus {
+  box-shadow: 0 0 0 3px rgba(255,107,122,0.12);
+}
+
+/* ── Eye toggle ── */
+.al-eye {
+  position: absolute;
+  right: 13px;
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: var(--al-muted);
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  transition: color var(--al-transition);
+}
+
+.al-eye:hover { color: var(--al-teal); }
+
+/* ── Validation error ── */
+.al-error {
+  font-size: 12.5px;
+  color: var(--al-error);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  animation: al-fadeDown var(--al-transition) both;
+}
+
+/* ── Attempt warning ── */
+.al-attempts {
+  font-size: 12.5px;
+  color: #e5a550;
+  background: rgba(229, 165, 80, 0.08);
+  border: 1px solid rgba(229, 165, 80, 0.2);
+  border-radius: 8px;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+/* ── Submit button ── */
+.al-submit {
+  width: 100%;
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--al-navy);
+  background: var(--al-teal);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform var(--al-transition), box-shadow var(--al-transition), opacity var(--al-transition), background var(--al-transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+  box-shadow: 0 4px 20px rgba(0, 201, 167, 0.3);
+  letter-spacing: 0.01em;
+}
+
+.al-submit:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(0, 201, 167, 0.4);
+  background: #00dbb7;
+}
+
+.al-submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.al-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Spinner ── */
+.al-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(13, 17, 23, 0.25);
+  border-top-color: var(--al-navy);
+  border-radius: 50%;
+  animation: al-spin 0.55s linear infinite;
+}
+
+@keyframes al-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Footer ── */
+.al-footer {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.al-footer p {
+  font-size: 13px;
+  color: var(--al-muted);
+  line-height: 1.6;
+}
+
+.al-footer p span {
+  color: var(--al-teal);
+  font-weight: 600;
+}
+
+.al-copy {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--al-border);
+  font-size: 12px !important;
+  color: rgba(136,153,170,0.5) !important;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* ════════════════════
+   RESPONSIVE
+═════════════════════ */
+
+/* Tablet: hide left panel, center the card */
+@media (max-width: 900px) {
+  .al-side { display: none; }
+
+  .al-card {
+    max-width: 480px;
+    min-height: unset;
+  }
+
+  .al-form-panel {
+    padding: 44px 36px;
+  }
+}
+
+/* Large phone */
+@media (max-width: 560px) {
+  .al-root { padding: 12px; }
+
+  .al-card {
+    border-radius: 16px;
+  }
+
+  .al-form-panel {
+    padding: 36px 24px;
+  }
+
+  .al-header h1 { font-size: 22px; }
+
+  .al-input-wrap input {
+    padding: 12px 14px 12px 44px;
+    font-size: 14px;
+  }
+
+  .al-submit {
+    padding: 13px 20px;
+    font-size: 14.5px;
+  }
+}
+
+/* Small phone */
+@media (max-width: 380px) {
+  .al-form-panel { padding: 28px 16px; }
+  .al-header { margin-bottom: 28px; }
+  .al-form { gap: 16px; }
+  .al-header h1 { font-size: 20px; }
 }

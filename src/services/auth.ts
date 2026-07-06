@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_BASE_URL ||   'http://localhost:4000/api',
+    baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api',
     withCredentials: true,
 })
 
@@ -12,16 +12,19 @@ export type LoginPayload = {
 
 export const authService = {
     login: async (payload: LoginPayload) => {
-        // const res = await api.post('/admin/login', payload)
-        return {res: 'success', data: payload}
-        // return res.data
+        const res = await api.post(
+            "/auth/login",
+            payload
+        );
+
+        return res.data;
     },
     requestPasswordReset: async (email: string) => {
-        const res = await api.post('/admin/forget-password', {email})
+        const res = await api.post('/admin/forget-password', { email })
         return res.data
     },
     resetPassword: async (token: string, password: string) => {
-        const res = await api.post(`/admin/reset-password`, {token, password})
+        const res = await api.post(`/admin/reset-password`, { token, password })
         return res.data
     },
 }
