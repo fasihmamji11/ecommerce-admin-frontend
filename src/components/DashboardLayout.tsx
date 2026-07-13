@@ -207,7 +207,6 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
               {page.subtitle && <p className="dl-page-sub">{page.subtitle}</p>}
             </div>
           </div>
-
           {/* Right */}
           <div className="dl-topbar-right">
             {/* Notification bell */}
